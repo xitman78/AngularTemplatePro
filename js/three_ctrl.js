@@ -4,7 +4,7 @@ app.controller('three_ctrl', ['$scope', 'AVService', function($scope,  AVService
            
            console.log("Controller three loaded");
            
-           $scope.test = "Three controller";
+           $scope.test = "Three controller\n and some text here.";
            
            AVService.set_page_title_prefix("Three");
 	       
