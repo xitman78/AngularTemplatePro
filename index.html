@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MihaProApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title ng-bind="header"></title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel=stylesheet href="style.css">
+
+    <script src="angular/angular.min.js" language="javascript" type="text/javascript"></script>
+    <script src="angular/angular-route.min.js" language="javascript" type="text/javascript" ></script>
+            
+    <script src="js/main_ctrl.js" language="javascript" type="text/javascript"></script> 
+    <script src="js/one_ctrl.js" language="javascript" type="text/javascript"></script>
+    <script src="js/two_ctrl.js" language="javascript" type="text/javascript"></script> 
+    <script src="js/three_ctrl.js" language="javascript" type="text/javascript"></script>
+   
+     <script type="text/javascript">
+        app.config(function ($routeProvider) 
+        {
+            $routeProvider
+                .when('/one', {templateUrl: 'pages/one.html', controller: 'one_ctrl'})
+                .when('/two', {templateUrl: 'pages/two.html', controller: 'two_ctrl'})
+                .when('/three', {templateUrl: 'pages/three.html', controller: 'three_ctrl'})
+                .otherwise({redirectTo: '/one'});        
+        });
+    </script>
+    
+</head>
+
+<body ng-controller="mainController" ng-init="init()">
+    
+ <div class="logo_block">
+    <div class="logo">Our Logo</div>
+</div>    
+<div class="form_bgv" ng-if="modal_mode"></div>
+
+<div>
+
+    <div class="menu_block">
+        <div class="tab_link" ng-class="{tab_link_active:active_tab=='/one'}"><a href="#one"">One</a></div>
+        <div class="tab_link" ng-class="{tab_link_active:active_tab=='/two'}"><a href="#two">Two</a></div>
+        <div class="tab_link" ng-class="{tab_link_active:active_tab=='/three'}"><a href="#three">Three</a></div>
+        <div class="tab_link" style="width:60px"></div>
+    </div>
+
+    <div ng-view> </div>
+    
+</div>
+
+</body>
+</html>
