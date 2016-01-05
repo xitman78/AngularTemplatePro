@@ -15,8 +15,8 @@ app.factory('AVService', function ($rootScope)
     
     AVService.set_page_title_prefix = function(prefix) {
         
-        if(prefix) $rootScope.header = prefix + " :: Analytics View";
-        else $rootScope.header = "Analytics View";
+        if(prefix) $rootScope.header = prefix + " :: AngularJS Template";
+        else $rootScope.header = "AngularJS Template";
 
     }; 
     
@@ -29,7 +29,7 @@ app.controller('mainController', [ '$scope', '$rootScope', '$location', 'AVServi
 
     $scope.init = function()
     {
-        $rootScope.header = "Analytics View";
+        $rootScope.header = "AngularJS Template";
         
         $scope.modal_mode = 0;
         
