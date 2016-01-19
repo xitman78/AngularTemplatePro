@@ -11,16 +11,19 @@ html, body{
 
 body {
 
-    background-color: #333;
+    background-color: #311100;
     color: #999;
     margin:0;
 }
 
 .logo_block {
     display: block;
-    height: 100px;
+    min-height: 120px;
     width: 100%;
-    background-color: #333;
+    background-image: url(images/cup-coffee-03.svg);
+    background-repeat: no-repeat;
+    background-size: 140px 140px;
+    background-position: 46px 16px; 
 }
 
 .menu_block {
@@ -29,31 +32,109 @@ body {
     height: 40px;
     padding: 10px 0;
     text-align: right;
-    background-color: #333;
+    padding-top: 120px;
+}
+
+.slider_block {
+    display: block;
+    width: 100%;
+    height: 350px;
+    background-image: url(images/bg1024-01.png);
+    background-repeat: repeat;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    white-space: nowrap;
+    position:relative;
+}
+
+.arrow_left {
+    display: block;
+    width:60px;
+    height:60px;
+    background-image: url("images/arrow-left.png");
+    background-size: contain;
+    position: absolute;
+    left: 20px;
+    top: 150px;
+    cursor:pointer;
+    z-index:100;
+    opacity: 0.5;
+    transition: opacity 0.7s;
+}
+
+.arrow_left:hover {
+    opacity: 1; 
+}
+
+.arrow_right {
+    display: block;
+    width:60px;
+    height:60px;
+    background-image: url("images/arrow-right.png");
+    background-size: contain;
+    position: absolute;
+    right: 20px;
+    top: 150px;
+    cursor:pointer;
+    z-index:100;
+    opacity: 0.5;
+    transition: opacity 0.7s;
+}
+
+.arrow_right:hover {
+    opacity: 1; 
+}
+
+.gray_block {
+    display: block;
+    width: 100%;
+    min-height: 350px;
+    background-color: #AAA;
+}
+
+.darkgray_block {
+    display: block;
+    width: 100%;
+    min-height: 350px;
+    background-image: url(images/bg1024-02.png);
+    background-repeat: repeat;
+    background-position: center;
+    color: #FFF;
 }
 
 .tab_link {
     display: inline-block;
-    color: #AAA;   
+    color: #de8d58;   
     margin: 0 20px 0 20px;
 }
 
 .tab_link a:link, .tab_link a:visited {
-	color:#AAA;
+	color:#de8d58;
     text-decoration: none;
 }
 .tab_link a:hover {
-	color:#FFF;
+	color:#fbd26d;
 }
 
 .tab_link_active a:link, .tab_link_active a:visited {
     font-style: bold;
     text-decoration: none;
-    border-bottom: #AAA solid 2px;
-    color: #AAA;
+    padding-bottom: 3px;
+    border-bottom: #de8d58 solid 4px;
+    color: #de8d58;
 }
 .tab_link_active a:hover {
-	color:#FFF;
-    border-bottom: #FFF solid 2px;
+	color:#fbd26d;
+    border-bottom: #fbd26d solid 3px;
 }
 
+
+.padding_10 {
+    padding: 10px;
+}
+
+.ngview_block {
+    display: block;
+    border-top: #873500 solid 2px;
+    border-bottom: #873500 solid 2px;    
+}

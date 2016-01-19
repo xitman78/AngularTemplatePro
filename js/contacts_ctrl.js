@@ -1,4 +1,4 @@
-app.controller('three_ctrl', ['$scope', 'AVService', function($scope,  AVService)
+app.controller('contacts_ctrl', ['$scope', 'AVService', function($scope,  AVService)
 {
 	   $scope.init = function() {
            

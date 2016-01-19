@@ -14,7 +14,7 @@
     <script src="js/main_ctrl.js" language="javascript" type="text/javascript"></script> 
     <script src="js/one_ctrl.js" language="javascript" type="text/javascript"></script>
     <script src="js/two_ctrl.js" language="javascript" type="text/javascript"></script> 
-    <script src="js/three_ctrl.js" language="javascript" type="text/javascript"></script>
+    <script src="js/contacts_ctrl.js" language="javascript" type="text/javascript"></script>
    
      <script type="text/javascript">
         app.config(function ($routeProvider) 
@@ -22,7 +22,7 @@
             $routeProvider
                 .when('/one', {templateUrl: 'pages/one.html', controller: 'one_ctrl'})
                 .when('/two', {templateUrl: 'pages/two.html', controller: 'two_ctrl'})
-                .when('/three', {templateUrl: 'pages/three.html', controller: 'three_ctrl'})
+                .when('/contacts', {templateUrl: 'pages/contacts.html', controller: 'contacts_ctrl'})
                 .otherwise({redirectTo: '/one'});        
         });
     </script>
@@ -32,20 +32,18 @@
 <body ng-controller="mainController" ng-init="init()">
     
  <div class="logo_block">
-    <div class="logo">Our Logo</div>
-</div>    
-<div class="form_bgv" ng-if="modal_mode"></div>
-
-<div>
-
+    <!--div class="logo">
+        <!--img src="images/cup-coffee-03.svg" width="130" height="130" border="0" title-"CUP-Coffee" />
+    </div-->
     <div class="menu_block">
         <div class="tab_link" ng-class="{tab_link_active:active_tab=='/one'}"><a href="#one"">One</a></div>
         <div class="tab_link" ng-class="{tab_link_active:active_tab=='/two'}"><a href="#two">Two</a></div>
-        <div class="tab_link" ng-class="{tab_link_active:active_tab=='/three'}"><a href="#three">Three</a></div>
+        <div class="tab_link" ng-class="{tab_link_active:active_tab=='/contacts'}"><a href="#contacts">Контакты</a></div>
         <div class="tab_link" style="width:60px"></div>
     </div>
+</div>    
 
-    <div ng-view> </div>
+    <div ng-view class="ngview_block"> </div>
     
 </div>
 

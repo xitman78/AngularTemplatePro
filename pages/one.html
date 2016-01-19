@@ -1,3 +1,9 @@
 <div ng-controller="one_ctrl" ng-init="init()">
-    {{test}}
+    <div class="slider_block">       
+        <div ng-repeat="slide in slides_list" style="display:inline-block;margin:0 20px 0 20px;cursor:pointer;min-height:350px; min-width:350px;">
+            <img ng-src="{{slide.img_src}}" width="{{slide.width}}" height="{{slide.height}}" border=0 title="{{slide.title}}">
+         </div>
+         <div class="arrow_left" ng-click="move_left()"></div>
+         <div class="arrow_right" ng-click="move_right()"></div>
+    </div>
 </div> 
