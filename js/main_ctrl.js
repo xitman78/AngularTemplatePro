@@ -15,8 +15,8 @@ app.factory('AVService', function ($rootScope)
     
     AVService.set_page_title_prefix = function(prefix) {
         
-        if(prefix) $rootScope.header = prefix + " :: AngularJS Template";
-        else $rootScope.header = "AngularJS Template";
+        if(prefix) $rootScope.header = prefix + " :: CUP-Coffee";
+        else $rootScope.header = "CUP-Coffee";
 
     }; 
     
