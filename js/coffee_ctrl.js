@@ -1,4 +1,4 @@
-app.controller('one_ctrl', ['$scope', 'AVService', '$window', function($scope,  AVService, $window)
+app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope,  AVService, $window)
 {
     
        $scope.slides_list = [
