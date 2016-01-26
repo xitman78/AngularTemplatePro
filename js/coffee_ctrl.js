@@ -2,12 +2,18 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
 {
     
        $scope.slides_list = [
-           {title: "First Image", img_src: "slides/slide-01a.png", width: 350, height:350, description: "Description for first image"},
+           {title: "Red Coffee", img_src: "slides/coffee-01.jpg", description: "Red Coffee", width: 350, height:350, central: true},
+           {title: "Black Coffee", img_src: "slides/coffee-02.jpg", description: "Black Coffee", width: 350, height:350},
+           {title: "Gold Coffee", img_src: "slides/coffee-03.jpg", description: "Gold Coffee",  width: 350, height:350}
+       ]; 
+       
+       /*[
+           {title: "Red Coffee", img_src: "slides/slide-01a.png", width: 350, height:350, description: "Description for first image"},
            {title: "Second Image",  img_src: "slides/slide-01b.png", width: 350, height:350, description: "Description for second image"},
            {title: "Third Image",  img_src: "slides/slide-01c.png", width: 350, height:350, description: "Description for third image"},
            {title: "Fourth Image", central: true,  img_src: "slides/slide-01d.png", width: 350, height:350, description: "Description for fourth image"},
            {title: "Fifth Image",  img_src: "slides/slide-01e.png", width: 350, height:350, description: "Description for fifth image"}
-           ];
+           ]; */
            
        $scope.slides_copy = [{},{},{},{},{}];
           
@@ -67,10 +73,10 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
            $scope.init_indexes();
            
            var central_index = $scope.find_central_index();
-                     
-           $scope.slides_copy[2] = angular.copy($scope.slides_list[central_index]);           
+                                         
+           $scope.slides_copy[0] = angular.copy($scope.slides_list[$scope.prev_index(central_index - 2)]); 
            $scope.slides_copy[1] = angular.copy($scope.slides_list[$scope.prev_index(central_index - 1)]);           
-           $scope.slides_copy[0] = angular.copy($scope.slides_list[$scope.prev_index(central_index - 2)]);          
+           $scope.slides_copy[2] = angular.copy($scope.slides_list[central_index]);         
            $scope.slides_copy[3] = angular.copy($scope.slides_list[$scope.next_index(central_index + 1)]);           
            $scope.slides_copy[4] = angular.copy($scope.slides_list[$scope.next_index(central_index + 2)]);
            
@@ -79,7 +85,7 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
            
            for(var i = 0; i < $scope.slides_copy.length; i++) {
                
-               var style = { top: "10px", left: "" + offset + "px" };
+               var style = { top: "0", left: "" + offset + "px" };
                
                offset += $scope.slides_margin;
                
@@ -102,7 +108,7 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
            
            var copy_el = angular.copy($scope.slides_list[$scope.next_index($scope.slides_copy[3].index + 1)]);
            
-           copy_el.style = {top: "10px"};
+           copy_el.style = {top: "0"};
            
            copy_el.style.left = ""  + ( ($scope.slide_width * 3) + ($scope.slides_margin * 3)) + "px";
            
@@ -122,7 +128,7 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
            
            var copy_el = angular.copy($scope.slides_list[$scope.prev_index($scope.slides_copy[0].index - 1)]);
            
-           copy_el.style = {top: "10px"};
+           copy_el.style = {top: "0"};
            
            copy_el.style.left = "-"  + ( $scope.slide_width + $scope.slides_margin ) + "px";
            
