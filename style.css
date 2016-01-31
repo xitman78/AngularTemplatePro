@@ -212,6 +212,7 @@ body {
 
 .contacts_block {
     display: block;
+    top: 0;
     width: 1000px;
     height: 350px;
     margin-left: auto;
