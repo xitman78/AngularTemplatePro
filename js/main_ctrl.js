@@ -24,6 +24,12 @@ app.factory('AVService', function ($rootScope)
     
 });
 
+app.filter('nl2br', function ($sce) {
+    return function (text) {
+        return text ? $sce.trustAsHtml(text.replace(/\n/g, '<br/>')) : '';
+    };
+})
+
 app.controller('mainController', [ '$scope', '$rootScope', '$location', 'AVService', function($scope, $rootScope, $location, AVService) 
 {
 

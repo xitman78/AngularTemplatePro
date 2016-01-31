@@ -16,7 +16,36 @@
     <script src="js/two_ctrl.js" language="javascript" type="text/javascript"></script> 
     <script src="js/contacts_ctrl.js" language="javascript" type="text/javascript"></script>
    
-     <script type="text/javascript">
+     
+    
+</head>
+
+<body ng-controller="mainController" ng-init="init()">
+ <div class="container"> 
+    <div class="content">   
+        <div class="logo_block">
+            <div class="logo"></div>
+            <div class="menu_block unselected">
+                <div class="tab_link" ng-class="{tab_link_active:active_tab=='/coffee'}"><a href="#coffee"">Кава</a></div>
+                <div class="tab_link" ng-class="{tab_link_active:active_tab=='/two'}"><a href="#two">та</a></div>
+                <div class="tab_link" ng-class="{tab_link_active:active_tab=='/contacts'}"><a href="#contacts">Контакти</a></div>
+            </div>
+        </div>    
+        <div ng-view class="ngview_block"> </div>
+    </div>
+</div>  
+
+<div class="footer">
+        <div class="footer_level_null"></div>
+        <div class="footer_level_one"></div>
+        <div class="footer_level_two"></div>
+        <div class="footer_level_three"></div>
+        <div class="footer_image"></div>
+</div>  
+
+
+</body>
+    <script type="text/javascript">
         app.config(function ($routeProvider) 
         {
             $routeProvider
@@ -26,26 +55,4 @@
                 .otherwise({redirectTo: '/coffee'});        
         });
     </script>
-    
-</head>
-
-<body ng-controller="mainController" ng-init="init()">
-    
- <div class="logo_block">
-    <!--div class="logo">
-        <!--img src="images/cup-coffee-03.svg" width="130" height="130" border="0" title-"CUP-Coffee" />
-    </div-->
-    <div class="menu_block">
-        <div class="tab_link" ng-class="{tab_link_active:active_tab=='/coffee'}"><a href="#coffee"">Кава</a></div>
-        <div class="tab_link" ng-class="{tab_link_active:active_tab=='/two'}"><a href="#two">Two</a></div>
-        <div class="tab_link" ng-class="{tab_link_active:active_tab=='/contacts'}"><a href="#contacts">Контакты</a></div>
-        <div class="tab_link" style="width:60px"></div>
-    </div>
-</div>    
-
-    <div ng-view class="ngview_block"> </div>
-    
-</div>
-
-</body>
 </html>

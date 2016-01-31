@@ -2,18 +2,10 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
 {
     
        $scope.slides_list = [
-           {title: "Red Coffee", img_src: "slides/coffee-01.jpg", description: "Red Coffee", width: 350, height:350, central: true},
-           {title: "Black Coffee", img_src: "slides/coffee-02.jpg", description: "Black Coffee", width: 350, height:350},
-           {title: "Gold Coffee", img_src: "slides/coffee-03.jpg", description: "Gold Coffee",  width: 350, height:350}
+           {title: "Red Coffee", img_src: "slides/coffee-01.jpg", description: "Cup-Coffee, Red, 75г.\n40 штук/ящик\n\nCup-Coffee, Red, 150г.\n25 штук/ящик", width: 350, height:350, central: true},
+           {title: "Black Coffee", img_src: "slides/coffee-02.jpg", description: "Cup-Coffee, Black, 75г.\n40 штук/ящик\n\nCup-Coffee, Black, 150г.\n25 штук/ящик", width: 350, height:350},
+           {title: "Gold Coffee", img_src: "slides/coffee-03.jpg", description: "Cup-Coffee, Gold, 75г.\n40 штук/ящик\n\nCup-Coffee, Gold, 150г.\n25 штук/ящик",  width: 350, height:350}
        ]; 
-       
-       /*[
-           {title: "Red Coffee", img_src: "slides/slide-01a.png", width: 350, height:350, description: "Description for first image"},
-           {title: "Second Image",  img_src: "slides/slide-01b.png", width: 350, height:350, description: "Description for second image"},
-           {title: "Third Image",  img_src: "slides/slide-01c.png", width: 350, height:350, description: "Description for third image"},
-           {title: "Fourth Image", central: true,  img_src: "slides/slide-01d.png", width: 350, height:350, description: "Description for fourth image"},
-           {title: "Fifth Image",  img_src: "slides/slide-01e.png", width: 350, height:350, description: "Description for fifth image"}
-           ]; */
            
        $scope.slides_copy = [{},{},{},{},{}];
           
@@ -66,6 +58,19 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
            }
            
        };
+       
+       $scope.toggle_slide = function(slide) {
+           
+           if(slide.expand) {
+               slide.expand = false;
+               slide.descr_style = {bottom: "-150px"};
+           }
+           else {
+               slide.expand = true;
+               slide.descr_style = {bottom: "0"};
+           }
+           
+       };
       
        
        $scope.init_slides = function() {
@@ -90,6 +95,8 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
                offset += $scope.slides_margin;
                
                $scope.slides_copy[i].style = style;
+               
+               $scope.slides_copy[i].descr_style = {bottom: "-150px"};
                
                offset += $scope.slide_width;
            }

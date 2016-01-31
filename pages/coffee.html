@@ -1,8 +1,14 @@
 <div ng-controller="coffee_ctrl" ng-init="init()">
-    <div class="slider_block">
+    <div class="slider_block unselected">
         <div class="slides_cut">       
-            <div ng-repeat="slide in slides_copy" ng-style="slide.style" class="slide">
-                <img ng-src="{{slide.img_src}}" width="{{slide.width}}" height="{{slide.height}}" border=0 title="{{slide.title}}">
+            <div ng-repeat="slide in slides_copy" ng-style="slide.style" class="slide" ng-click="toggle_slide(slide)">
+                <div class="slide_in">
+                    <img ng-src="{{slide.img_src}}" width="{{slide.width}}" height="{{slide.height}}" border=0 title="{{slide.title}}" />
+                    <div class="slide_description" ng-style="slide.descr_style">
+                        <div ng-bind-html="slide.description | nl2br" class="descr_padding unselected">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
          <div class="arrow_left" ng-click="slide_right()"></div>
