@@ -13,9 +13,10 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
        $scope.slide_width = 350;
        $scope.central_slide = 1;
        
+       
 	   $scope.init = function() {
            
-           AVService.set_page_title_prefix("Кава");
+           AVService.set_page_title_prefix("Кава");    
            
            $scope.init_slides();
 	       
