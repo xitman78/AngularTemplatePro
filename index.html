@@ -22,15 +22,17 @@
 
 <body ng-controller="mainController" ng-init="init()">
  <div class="container"> 
-    <div class="content">   
-        <div class="logo_block">
-            <div class="logo"></div>
-            <div class="menu_block unselected">
-                <div class="tab_link" ng-class="{tab_link_active:active_tab=='/coffee'}"><a href="#coffee"">Кава</a></div>
-                <div class="tab_link" ng-class="{tab_link_active:active_tab=='/two'}"><a href="#two">та</a></div>
-                <div class="tab_link" ng-class="{tab_link_active:active_tab=='/contacts'}"><a href="#contacts">Контакти</a></div>
-            </div>
-        </div>    
+    <div class="content">
+        <div class="header_bg">   
+            <div class="logo_block">
+                <div class="logo"></div>
+                <div class="menu_block unselected">
+                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/coffee'}"><a href="#coffee"">Кава</a></div>
+                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/two'}"><a href="#two">та</a></div>
+                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/contacts'}"><a href="#contacts">Контакти</a></div>
+                </div>
+            </div>  
+        </div>  
         <div ng-view class="ngview_block"> </div>
     </div>
 </div>  
