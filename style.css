@@ -242,21 +242,6 @@ body {
     height: 32px;
 }
 
-.footer_image {
-    position: absolute;
-    top: -16px;
-    width: 1000px;
-    height: 160px;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url(images/slogan.svg);
-    background-repeat: no-repeat;
-    background-position: 20px 0;
-    background-size: 300px 160px;
-}
-
 .footer_level_one {
     display: block;
     height: 32px;
@@ -273,4 +258,39 @@ body {
     display: block;
     height: 16px;
     background-color: #e07400;
+}
+
+.footer_image {
+    position: absolute;
+    top: -16px;
+    width: 1000px;
+    height: 160px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(images/slogan.svg);
+    background-repeat: no-repeat;
+    background-position: 20px 0;
+    background-size: 300px 160px;
+}
+
+.footer_text_one {
+    position: absolute;
+    left: 360px;
+    top: 54px;
+    font-size: 14px;
+    color: white;
+}
+
+.footer_text_two {
+    position: absolute;
+    left: 360px;
+    top: 86px;
+    font-size: 16px;
+    color: white;
+}
+
+a:link, a:link:visited {
+    color: white;
 }
