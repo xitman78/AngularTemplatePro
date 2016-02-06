@@ -1,11 +1,7 @@
-app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope,  AVService, $window)
+app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', '$http', function($scope,  AVService, $window, $http)
 {
     
-       $scope.slides_list = [
-           {title: "Red Coffee", img_src: "slides/coffee-01.jpg", description: "Cup-Coffee, Red, 75г.\n40 штук/ящик\n\nCup-Coffee, Red, 150г.\n25 штук/ящик", width: 350, height:350, central: true},
-           {title: "Black Coffee", img_src: "slides/coffee-02.jpg", description: "Cup-Coffee, Black, 75г.\n40 штук/ящик\n\nCup-Coffee, Black, 150г.\n25 штук/ящик", width: 350, height:350},
-           {title: "Gold Coffee", img_src: "slides/coffee-03.jpg", description: "Cup-Coffee, Gold, 75г.\n40 штук/ящик\n\nCup-Coffee, Gold, 150г.\n25 штук/ящик",  width: 350, height:350}
-       ]; 
+       $scope.slides_list = []; 
            
        $scope.slides_copy = [{},{},{},{},{}];
           
@@ -16,10 +12,31 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', function($scope
        
 	   $scope.init = function() {
            
-           AVService.set_page_title_prefix("Кава");    
+           AVService.set_page_title_prefix("Кава");  
            
-           $scope.init_slides();
-	       
+           $scope.load_slides();  
+           
+       };
+       
+       $scope.load_slides = function () {
+           
+            var responsePromise = $http.get("slides.json");
+
+            responsePromise.success(function(data, status, headers, config)
+            {
+                console.log("Slides loaded successfully ", data); 
+                
+                $scope.slides_list = data;
+                
+                $scope.init_slides();
+                   
+            });
+            responsePromise.error(function(data, status, headers, config)
+            {
+                console.log("Error loading slides");
+
+            });
+           
        };
        
        $scope.find_central_index = function() {
