@@ -303,6 +303,7 @@ body {
     color: white;
 }
 
-a:link, a:link:visited {
+a, a:link, a:link:visited {
     color: white;
+    cursor: pointer;
 }
