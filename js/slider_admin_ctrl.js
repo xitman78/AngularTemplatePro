@@ -33,8 +33,6 @@ app.controller('SliderAdminCtrl', ['$scope', '$http', function($scope, $http)
                 console.log("Slides loaded successfully ", data); 
                 
                 $scope.slides_list = data;
-                
-               // $scope.init_slides();
                    
             });
             responsePromise.error(function(data, status, headers, config)
@@ -124,7 +122,42 @@ app.controller('SliderAdminCtrl', ['$scope', '$http', function($scope, $http)
            
            $scope.new_slide = angular.copy({title: "", description: "", width: 350, height: 350});
            
+           $scope.selectedx_file = "";
+           
            $scope.new_slide_form = false;
+       };
+       
+       $scope.save_slides_list = function() {
+           
+           var data = {};
+           
+           data.json = angular.toJson($scope.slides_list);
+           
+            var responsePromise = $http.post("save_slides.php", data);
+
+            responsePromise.success(function(data, status, headers, config)
+            {
+                 if (data == "ok") {
+                     alert("Slides were saved successfully");
+                 }
+                 else {
+                     alert("" + data);
+                 }
+                //console.log("Slides saved successfully ", data); 
+                
+                //$scope.slides_list = data;
+                   
+            });
+            responsePromise.error(function(data, status, headers, config)
+            {
+                console.log("Error saving slides");
+                
+                alert("Some error happened while saving slides.");
+                
+               // $scope.slides_list = [];
+
+            });
+           
        };
        
     

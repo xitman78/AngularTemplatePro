@@ -11,7 +11,7 @@
     
 &nbsp;<a href="" ng-click="load_slides()">Reload slides</a>&nbsp;&nbsp;
 <a href="" ng-click="add_new_slide()">Add slide</a>&nbsp;&nbsp;
-<a href="" ng-click="save_changes()">Save changes</a>
+<a href="" ng-click="save_slides_list()">Save changes</a>
 
     <div ng-show="new_slide_form" style="border: 1px solid white; padding:10px;display:block;clear:both;margin:10px;">
         <div>
@@ -21,18 +21,30 @@
                 <input type="submit" value="Upload Image" name="submit">
             </form>&nbsp;<a href="" ng-click="load_dir_slides()">Refresh folder</a>
         </div>
-        <div class="display:inline-block;float:left; width:30%;height:250px;overflow:scroll;border: 1px solid grey;">
-            <div ng-repeat="filename in dir_slides" style="dislpay:block; height: 25px; border-bottom: 1px solid grey;" ng-style="filename == selected_file ? {'background-color':'red'} : {} ">
-                <span ng-click="select_file(filename)" style="cursor:pointer">{{filename}}<span>
+        <div style="display: block;">
+            <table style="width: 100%">
+                <tr>
+                    <td style="width:30%;">
+            <div style="display: block; height:250px;overflow:scroll;border: 1px solid grey;">
+                <div ng-repeat="filename in dir_slides" style="dislpay:block; height: 25px; border-bottom: 1px solid grey;" ng-style="filename == selected_file ? {'background-color':'red'} : {} ">
+                    <span ng-click="select_file(filename)" style="cursor:pointer">{{filename}}<span>
+                </div>
             </div>
-        </div>
-        <div class="display:inline-block;width:30%;">
-            <img ng-if="selected_file" ng-src="{{'slides/' + selected_file}}" width="150" height="150" border=1>
-        </div>
-        <div class="display:inline-block;width:30%;">
-            Title: <input type="text" size="50" ng-model="new_slide.title"><br>
-            Description: <textarea ng-model="new_slide.description" rows="8" cols="50"></textarea><br>
-            <input type="button" value="Add and save" ng-click="save_new_slide()">
+            </td>
+            <td style="width:30%;text-align: center;">
+            <div>
+                <img ng-if="selected_file" ng-src="{{'slides/' + selected_file}}" width="150" height="150" border=1>
+            </div>
+            </td>
+            <td style="width:30%;">
+            <div>
+                Title:<br><input type="text" size="50" ng-model="new_slide.title"><br>
+                Description:<br><textarea ng-model="new_slide.description" rows="8" cols="50"></textarea><br>
+                <input type="button" value="Add to the list" ng-click="save_new_slide()">
+            </div>
+            </td>
+            </tr>
+            </table>
          </div>
         
     </div>
