@@ -26,7 +26,7 @@ app.controller('SliderAdminCtrl', ['$scope', '$http', function($scope, $http)
        
       $scope.load_slides = function () {
            
-            var responsePromise = $http.get("slides.json");
+            var responsePromise = $http.get("../slides.json");
 
             responsePromise.success(function(data, status, headers, config)
             {
@@ -47,7 +47,7 @@ app.controller('SliderAdminCtrl', ['$scope', '$http', function($scope, $http)
        
         $scope.load_dir_slides = function () {
            
-            var responsePromise = $http.get("dir_slides.php");
+            var responsePromise = $http.get("/admin/dir_slides.php");
 
             responsePromise.success(function(data, status, headers, config)
             {
@@ -116,7 +116,7 @@ app.controller('SliderAdminCtrl', ['$scope', '$http', function($scope, $http)
            
            var cpy = angular.copy($scope.new_slide);
            
-           cpy.img_src = "slides/" + $scope.selected_file;
+           cpy.img_src = "/slides/" + $scope.selected_file;
            
            $scope.slides_list.splice(0, 0, cpy);
            
@@ -133,7 +133,7 @@ app.controller('SliderAdminCtrl', ['$scope', '$http', function($scope, $http)
            
            data.json = angular.toJson($scope.slides_list);
            
-            var responsePromise = $http.post("save_slides.php", data);
+            var responsePromise = $http.post("/admin/save_slides.php", data);
 
             responsePromise.success(function(data, status, headers, config)
             {

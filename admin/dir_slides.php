@@ -2,7 +2,7 @@
 
 header('Content-Type: application/json');
 
-$dir    = 'slides';
+$dir    = '../slides';
 
 $files1 = scandir($dir);
 

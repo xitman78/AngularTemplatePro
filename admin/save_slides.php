@@ -15,7 +15,7 @@ if(!is_array($json)) {
 
 $json_str = json_encode($json);
 
-$res = file_put_contents("slides.json", $json_str);
+$res = file_put_contents("../slides.json", $json_str);
 
 if($res) {
     echo json_encode("ok");
