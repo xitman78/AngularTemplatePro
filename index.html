@@ -14,6 +14,7 @@
     <script src="js/main_ctrl.js" language="javascript" type="text/javascript"></script> 
     <script src="js/coffee_ctrl.js" language="javascript" type="text/javascript"></script>
     <script src="js/contacts_ctrl.js" language="javascript" type="text/javascript"></script>
+    <script src="js/actions_ctrl.js" language="javascript" type="text/javascript"></script>
  
 </head>
 
@@ -26,6 +27,7 @@
                 <div class="menu_block unselected">
                     <div class="tab_link" ng-class="{tab_link_active:active_tab=='/coffee'}"><a href="#coffee"">Кава</a></div>
                     <div class="tab_link" ng-class="{tab_link_active:active_tab=='/contacts'}"><a href="#contacts">Контакти</a></div>
+                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/actions'}"><a href="#actions">Акції</a></div>
                 </div>
             </div>  
         </div>  
@@ -58,6 +60,7 @@
                 .when('/coffee', {templateUrl: 'pages/coffee.html', controller: 'coffee_ctrl'})
                 .when('/two', {templateUrl: 'pages/two.html', controller: 'two_ctrl'})
                 .when('/contacts', {templateUrl: 'pages/contacts.html', controller: 'contacts_ctrl'})
+                .when('/actions', {templateUrl: 'pages/actions.html', controller: 'actions_ctrl'})
                 .otherwise({redirectTo: '/coffee'});        
         });
     </script>
