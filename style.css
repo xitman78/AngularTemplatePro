@@ -324,12 +324,29 @@ a, a:link, a:link:visited {
     display:block;
     box-sizing: border-box;
     border: 1px solid #fff;
-    text-align: center;
-    cursor:pointer;
-    -webkit-transition: 0.5s all;
-    transition: 0.5s all;
+    text-align: center; 
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     -webkit-user-select: none; 
     -moz-user-select: none; 
     -ms-user-select: none;     
     user-select: none; 
+    font-weight: bold;
+    background-color: rgba(182,47,5,0.5);
+}
+
+.active_cell {
+    cursor:pointer;
+}
+
+.active_cell:hover {
+    background-color: rgba(182,47,5,1);
+}
+
+.inactive_cell {
+    cursor:not-allowed;
+}
+
+.inactive_cell:hover {
+    background-color: rgba(182,47,5,0.1);
 }

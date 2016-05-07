@@ -17,6 +17,7 @@ function PuzzleCell(posX, posY, text) {
      
      if(this.text === '') {
          this.style.border = 'none';
+         this.style['background-color'] = 'rgba(0,0,0,0)';
      }
      
  }
@@ -48,6 +49,8 @@ function PuzzleField(w, h, size) {
     this.style = {};
     this.style.width = this.width * PuzzleCell.width + "px";
     this.style.height = this.height * PuzzleCell.height + "px";
+    
+    this.reactivate_cells();
     
 }
 
@@ -86,6 +89,8 @@ PuzzleField.prototype.cell_click = function(cell) {
             this.free_cell.y = t;           
             this.free_cell.calc_style();
             
+            this.reactivate_cells();
+            
             return;
         }
         
@@ -106,6 +111,8 @@ PuzzleField.prototype.cell_click = function(cell) {
            
             this.free_cell.y = t;           
             this.free_cell.calc_style();
+            
+            this.reactivate_cells();
             
             return;
         }
@@ -134,6 +141,8 @@ PuzzleField.prototype.cell_click = function(cell) {
             this.free_cell.x = t;           
             this.free_cell.calc_style();
             
+            this.reactivate_cells();
+            
             return;
         }
         
@@ -155,6 +164,8 @@ PuzzleField.prototype.cell_click = function(cell) {
            
             this.free_cell.x = t;           
             this.free_cell.calc_style();
+            
+            this.reactivate_cells();
             
             return;
         }
@@ -205,4 +216,18 @@ PuzzleField.prototype.shuffle = function() {
         this.free_cell.calc_style();
     }
     
+    this.reactivate_cells();
+    
 }
+
+PuzzleField.prototype.reactivate_cells = function() {
+    
+    for(i=0; i < this.cells.length; i++) {
+        if(this.cells[i] === this.free_cell) continue;
+        if(this.cells[i].x === this.free_cell.x || this.cells[i].y === this.free_cell.y) this.cells[i].active = 1;
+        else this.cells[i].active = 0;
+    }
+    
+}
+
+module.exports = PuzzleField;
