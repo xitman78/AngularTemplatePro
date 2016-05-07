@@ -1,12 +1,13 @@
 <div ng-controller="puzzle_ctrl" ng-init="init()">
     <div class="darkgray_block">
         <div class="puzzle_block" style="padding-left: 60px">
-            <br>
- 
-                <div class="puzzle_field" style="width:200px;height:200px;">
-                    <div ng-repeat="cell in puzzle.cells" class="puzzle_cell" ng-style="cell.style" ng-click="puzzle.cell_click(cell)">
-                        {{cell.text}}
-                     </div>
+            <button ng-click="puzzle.shuffle()">Shuffle</button><br>
+                <div class="puzzle_wrapper" ng-style="puzzle.style">
+                    <div class="puzzle_field">
+                        <div ng-repeat="cell in puzzle.cells" class="puzzle_cell" ng-style="cell.style" ng-click="puzzle.cell_click(cell)">
+                            {{cell.text}}
+                        </div>
+                    </div>
                 </div>
                
         </div>
