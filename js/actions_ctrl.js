@@ -1,4 +1,4 @@
-app.controller('actions', ['$scope', 'AVService', function($scope,  AVService)
+app.controller('actions_ctrl', ['$scope', 'AVService', function($scope,  AVService)
 {
 	   $scope.init = function() {
            

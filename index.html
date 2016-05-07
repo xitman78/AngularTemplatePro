@@ -10,10 +10,11 @@
 
     <script src="angular/angular.min.js" language="javascript" type="text/javascript"></script>
     <script src="angular/angular-route.min.js" language="javascript" type="text/javascript" ></script>
-            
+    
+    <script src="js/puzzle_class.js" language="javascript" type="text/javascript"></script>        
     <script src="js/main_ctrl.js" language="javascript" type="text/javascript"></script> 
     <script src="js/coffee_ctrl.js" language="javascript" type="text/javascript"></script>
-    <script src="js/contacts_ctrl.js" language="javascript" type="text/javascript"></script>
+    <script src="js/puzzle_ctrl.js" language="javascript" type="text/javascript"></script>
     <script src="js/actions_ctrl.js" language="javascript" type="text/javascript"></script>
  
 </head>
@@ -25,9 +26,9 @@
             <div class="logo_block">
                 <div class="logo"></div>
                 <div class="menu_block unselected">
-                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/coffee'}"><a href="#coffee"">Кава</a></div>
-                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/contacts'}"><a href="#contacts">Контакти</a></div>
-                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/actions'}"><a href="#actions">Акції</a></div>
+                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/coffee'}"><a href="#coffee"">Slider</a></div>
+                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/puzzle'}"><a href="#puzzle">Puzzle</a></div>
+                    <div class="tab_link" ng-class="{tab_link_active:active_tab=='/actions'}"><a href="#actions">Actions</a></div>
                 </div>
             </div>  
         </div>  
@@ -58,8 +59,7 @@
         {
             $routeProvider
                 .when('/coffee', {templateUrl: 'pages/coffee.html', controller: 'coffee_ctrl'})
-                .when('/two', {templateUrl: 'pages/two.html', controller: 'two_ctrl'})
-                .when('/contacts', {templateUrl: 'pages/contacts.html', controller: 'contacts_ctrl'})
+                .when('/puzzle', {templateUrl: 'pages/puzzle.html', controller: 'puzzle_ctrl'})
                 .when('/actions', {templateUrl: 'pages/actions.html', controller: 'actions_ctrl'})
                 .otherwise({redirectTo: '/coffee'});        
         });
