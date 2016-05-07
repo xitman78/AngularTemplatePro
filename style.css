@@ -326,6 +326,10 @@ a, a:link, a:link:visited {
     border: 1px solid #fff;
     text-align: center;
     cursor:pointer;
-    -webkit-transition: 0.5s all; /* Safari */
+    -webkit-transition: 0.5s all;
     transition: 0.5s all;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;     
+    user-select: none; 
 }

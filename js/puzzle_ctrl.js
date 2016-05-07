@@ -8,17 +8,9 @@ app.controller('puzzle_ctrl', ['$scope', 'AVService', function($scope,  AVServic
            
            AVService.set_page_title_prefix("Puzzle");
            
-           $scope.puzzle  =  new PuzzleField();
+           $scope.puzzle  =  new PuzzleField(4, 4, 70);
 	       
        };
-       
-    /*   $scope.cell_click = function (cell) {
-           
-           //console.log("Cell clicked " + cell.text);
-           $scope.puzzle.cell_click(cell);
-           
-           //$scope.apply();
-           
-       } */ 
+
   
 }]);

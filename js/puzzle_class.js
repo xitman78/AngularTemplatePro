@@ -10,9 +10,6 @@ function PuzzleCell(posX, posY, text) {
 
 }
 
-PuzzleCell.width = 50;
-PuzzleCell.height = 50;
-
  PuzzleCell.prototype.calc_style = function() {
      
      this.style.top = this.y * PuzzleCell.height + "px";
@@ -24,12 +21,15 @@ PuzzleCell.height = 50;
      
  }
 
-function PuzzleField() {
+function PuzzleField(w, h, size) {
     
     console.log("constructor");
     
-    this.width = 4;
-    this.height = 4;
+    this.width = w;
+    this.height = h;
+    
+    PuzzleCell.width = size;
+    PuzzleCell.height = size;
     
     this.cells = [];
     
@@ -51,13 +51,6 @@ function PuzzleField() {
     
 }
 
-PuzzleField.prototype.get_free_cell = function () {
-    
-    console.log("get free cell");
-    
-    return this.free_cell;
-       
-}
 
 PuzzleField.prototype.cell_click = function(cell) {
     
@@ -197,6 +190,19 @@ PuzzleField.prototype.shuffle = function() {
         this.cells[j].y = tempY;
         this.cells[i].calc_style();
         this.cells[j].calc_style();
+    }
+    
+    var lastcell = this.find_cell(this.width - 1, this.height - 1);
+    
+    if(lastcell != this.free_cell) {
+        var tempX = lastcell.x;
+        var tempY = lastcell.y;
+        lastcell.x = this.free_cell.x;
+        lastcell.y = this.free_cell.y;
+        this.free_cell.x = tempX;
+        this.free_cell.y = tempY; 
+        lastcell.calc_style();
+        this.free_cell.calc_style();
     }
     
 }
