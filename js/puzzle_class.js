@@ -53,6 +53,7 @@ function PuzzleField(w, h, size) {
     this.reactivate_cells();
     
     this.moves_count = 0; 
+    this.timerPro = null;
     
 }
 
@@ -246,6 +247,9 @@ PuzzleField.prototype.solve = function() {
     
     this.moves_count = 0;
     
+    this.timerPro = null;
+    this.timer_text = '';
+    
     this.reactivate_cells();
 }
 
@@ -269,6 +273,9 @@ PuzzleField.prototype.reactivate_cells = function() {
     }
     
     if(all_in === true && this.moves_count > 0) {
+        
+        if(this.timerPro) $interval.cancel(this.timerPro);
+        
         alert("Congratulations! You've solved the puzzle within " + this.moves_count + " moves.");
         this.moves_count = 0;
     }

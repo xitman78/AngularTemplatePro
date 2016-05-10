@@ -280,7 +280,7 @@ body {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    background-image: url(images/slogan.svg);
+    background-image: url(images/slogan-15.svg);
     background-repeat: no-repeat;
     background-position: 20px 0;
     background-size: 300px 160px;
@@ -353,6 +353,10 @@ a, a:link, a:link:visited {
 .inplace {
     border: 1px solid #2de901;
     background-color: rgba(45,233,1,0.5);
+}
+
+.inplace:hover {
+    background-color: rgba(45,233,1,1);
 }
 
 .new_game_button {

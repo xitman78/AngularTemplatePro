@@ -10,7 +10,7 @@ app.controller('puzzle_ctrl', ['$scope', 'AVService', '$interval', '$filter', fu
            
            $scope.puzzle  =  new PuzzleField(4, 4, 70);
            
-           $scope.timer_text = '';
+           $scope.puzzle.timer_text = '';
            	       
        };
        
@@ -20,12 +20,13 @@ app.controller('puzzle_ctrl', ['$scope', 'AVService', '$interval', '$filter', fu
             
             $scope.curTime = $scope.startTime;
             
-            $scope.timerPro = $interval(function() {
+            $scope.puzzle.timerPro = $interval(function() {
+                
                 $scope.curTime = new Date();
                 
                 var ms = Math.abs($scope.curTime.getTime() - $scope.startTime.getTime());
                 
-                $scope.timer_text = ($filter('date')(ms, 'mm:ss:sss')).substring(0,7);
+                $scope.puzzle.timer_text = ($filter('date')(ms, 'mm:ss:sss')).substring(0,7);
                     
             }, 100);  
             
@@ -33,8 +34,9 @@ app.controller('puzzle_ctrl', ['$scope', 'AVService', '$interval', '$filter', fu
        };
        
        $scope.solve = function() {
-            $interval.cancel($scope.timerPro);
-            $scope.timer_text = '';
+           
+            if($scope.puzzle.timerPro) $interval.cancel($scope.puzzle.timerPro);
+            
             $scope.puzzle.solve();  
        };
 
