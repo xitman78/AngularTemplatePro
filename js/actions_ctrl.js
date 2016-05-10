@@ -6,7 +6,7 @@ app.controller('actions_ctrl', ['$scope', 'AVService', function($scope,  AVServi
            
            $scope.test = "Two controller";
            
-           AVService.set_page_title_prefix("Акції");
+           AVService.set_page_title_prefix("Actions");
 	       
        };
   

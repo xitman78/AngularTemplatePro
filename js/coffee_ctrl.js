@@ -12,7 +12,7 @@ app.controller('coffee_ctrl', ['$scope', 'AVService', '$window', '$http', functi
        
 	   $scope.init = function() {
            
-           AVService.set_page_title_prefix("Кава");  
+           AVService.set_page_title_prefix("Slider");  
            
            $scope.load_slides();  
            

@@ -1,4 +1,4 @@
-var app = angular.module('MihaProApp', ['ngRoute']);
+var app = angular.module('PuzzleApp', ['ngRoute']);
 
 app.factory('AVService', function ($rootScope) 
 {

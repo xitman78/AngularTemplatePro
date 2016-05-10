@@ -24,7 +24,7 @@ function PuzzleCell(posX, posY, text) {
 
 function PuzzleField(w, h, size) {
     
-    console.log("constructor");
+  //  console.log("constructor");
     
     this.width = w;
     this.height = h;
@@ -178,7 +178,7 @@ PuzzleField.prototype.cell_click = function(cell) {
 
 PuzzleField.prototype.find_cell = function(posX, posY) {
     
-    for(var i=0;i < this.cells.length; i++) {
+    for(var i=0; i < this.cells.length; i++) {
         if(this.cells[i].x === posX && this.cells[i].y === posY) {
             return this.cells[i];
         }
@@ -220,6 +220,27 @@ PuzzleField.prototype.shuffle = function() {
     
 }
 
+PuzzleField.prototype.solve = function() {
+    
+    for(i=0; i < this.cells.length; i++) {
+        if(this.cells[i].text !== '') {
+           // var num = parseInt(this.cells[i].text);
+            this.cells[i].x = i % this.width;
+            this.cells[i].y = Math.floor( i / this.height );
+            
+            this.cells[i].calc_style();
+        }
+        else {
+            //free cell
+            this.cells[i].x = this.width - 1;
+            this.cells[i].y = this.height - 1;
+            this.cells[i].calc_style();
+        }
+    }
+    
+    this.reactivate_cells();
+}
+
 PuzzleField.prototype.reactivate_cells = function() {
     
     for(i=0; i < this.cells.length; i++) {
@@ -230,4 +251,4 @@ PuzzleField.prototype.reactivate_cells = function() {
     
 }
 
-module.exports = PuzzleField;
+if(typeof(module) !== "undefined") module.exports = PuzzleField;

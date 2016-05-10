@@ -12,21 +12,20 @@ html, body{
 body {
 
     background-color: #311100;
-    color: #999;
     margin:0;
 }
 .logo {
     display: block;
-    width: 150px;
-    height: 160px;
-    background-image: url(images/cup-coffee-01.svg);
-    background-repeat: no-repeat;
-    background-size: 140px 140px;
-    background-position: 0px 10px;
     position: absolute;
     left: 40px;
-    top: 0;
+    top: 20px;
     
+}
+
+.head_title {
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .header_bg {
@@ -349,4 +348,21 @@ a, a:link, a:link:visited {
 
 .inactive_cell:hover {
     background-color: rgba(182,47,5,0.1);
+}
+
+.new_game_button {
+    display: block;
+    background-color: #e96e01;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bolder;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    border: 0px solid #000000;
+    cursor: pointer;
+    
 }
