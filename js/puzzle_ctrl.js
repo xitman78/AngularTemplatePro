@@ -11,7 +11,7 @@ app.controller('puzzle_ctrl', ['$scope', 'AVService', '$interval', '$filter', fu
            $scope.puzzle  =  new PuzzleField(4, 4, 70);
            
            $scope.timer_text = '';
-	       
+           	       
        };
        
        $scope.new_game = function() {
@@ -34,6 +34,7 @@ app.controller('puzzle_ctrl', ['$scope', 'AVService', '$interval', '$filter', fu
        
        $scope.solve = function() {
             $interval.cancel($scope.timerPro);
+            $scope.timer_text = '';
             $scope.puzzle.solve();  
        };
 

@@ -52,6 +52,8 @@ function PuzzleField(w, h, size) {
     
     this.reactivate_cells();
     
+    this.moves_count = 0; 
+    
 }
 
 
@@ -66,6 +68,8 @@ PuzzleField.prototype.cell_click = function(cell) {
         console.log("Cannot move from here!");
         return;
     }
+    
+    this.moves_count++;
     
     if(cell.x == this.free_cell.x) {
         
@@ -216,6 +220,8 @@ PuzzleField.prototype.shuffle = function() {
         this.free_cell.calc_style();
     }
     
+    this.moves_count = 0;
+    
     this.reactivate_cells();
     
 }
@@ -238,15 +244,33 @@ PuzzleField.prototype.solve = function() {
         }
     }
     
+    this.moves_count = 0;
+    
     this.reactivate_cells();
 }
 
 PuzzleField.prototype.reactivate_cells = function() {
     
+    var all_in = true;
+    
     for(i=0; i < this.cells.length; i++) {
         if(this.cells[i] === this.free_cell) continue;
         if(this.cells[i].x === this.free_cell.x || this.cells[i].y === this.free_cell.y) this.cells[i].active = 1;
         else this.cells[i].active = 0;
+        
+        var num = parseInt(this.cells[i].text) - 1;
+        var cx = num % this.height;
+        var cy = Math.floor(num / this.width);
+        
+        if( cx == this.cells[i].x &&  cy == this.cells[i].y ) this.cells[i].inplace = 1;
+        else this.cells[i].inplace = 0;
+        
+        if(this.cells[i].inplace !== 1) all_in = false;
+    }
+    
+    if(all_in === true && this.moves_count > 0) {
+        alert("Congratulations! You've solved the puzzle within " + this.moves_count + " moves.");
+        this.moves_count = 0;
     }
     
 }

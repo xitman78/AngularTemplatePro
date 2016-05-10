@@ -4,12 +4,15 @@
             <div style="display:inline-block;vertical-align:top;padding-right:20px;">
                 <button class="new_game_button" ng-click="new_game()">New Game</button><br>
                 <button class="new_game_button" ng-click="solve()">Solve</button><br>
-                <h3>{{timer_text}}</h3>
+                <h3>Time: {{timer_text}}</h3>
+                <h3>Moves: {{puzzle.moves_count}}</h3>
             </div>
             <div style="display:inline-block">
                 <div class="puzzle_wrapper" ng-style="puzzle.style">
                     <div class="puzzle_field">
-                        <div ng-repeat="cell in puzzle.cells" class="puzzle_cell" ng-class="{active_cell:cell.active == 1, inactive_cell:cell.active == 0}" ng-style="cell.style" ng-click="puzzle.cell_click(cell)">
+                        <div ng-repeat="cell in puzzle.cells" class="puzzle_cell" 
+                        ng-class="{active_cell:cell.active == 1, inactive_cell:cell.active == 0, inplace: cell.inplace == 1}" 
+                        ng-style="cell.style" ng-click="puzzle.cell_click(cell)">
                             {{cell.text}}
                         </div>
                     </div>

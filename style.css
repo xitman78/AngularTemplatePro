@@ -350,6 +350,11 @@ a, a:link, a:link:visited {
     background-color: rgba(182,47,5,0.1);
 }
 
+.inplace {
+    border: 1px solid #2de901;
+    background-color: rgba(45,233,1,0.5);
+}
+
 .new_game_button {
     display: block;
     background-color: #e96e01;
